@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ingredient Search</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+    
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/ingredient_style.css') }}" />
+    
+    
+    
+    
+  </head>
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="/">
+      <img src="{{url_for('static',filename = 'logo.png')}}" width="30" height="30" class="d-inline-block align-top" alt="">
+      HOME Recipes
+    </a>
+    <span class="navbar-text">
+      Ingredient Search
+    </span>
+  </nav>
+
+  <body>
+<div class="text-center">
+  <h3>What ingredient would you like to sort by?</h3>
+    <a class="btn btn-primary btn-lg" href="javascript:;" onclick="getRecipe('chicken'),getRecipe('chicken_breast'),getRecipe('chicken_breasts'),getRecipe('chicken_legs'),getRecipe('chicken_thighs')">Chicken</a>
+    <a class="btn btn-primary btn-lg" href="javascript:;" onclick="getRecipe('beef'),getRecipe('beef_brisket'),getRecipe('beef_fillet'),getRecipe('beef_brisket'),getRecipe('minced_beef'),getRecipe('beef_kidney'),getRecipe('beef_shin'),getRecipe('ground_beef')">Beef</a>
+    <a class="btn btn-primary btn-lg" href="javascript:;" onclick="getRecipe('pork'),getRecipe('bacon'),getRecipe('minced_pork'),getRecipe('ground_pork'),getRecipe('pork_chops'),getRecipe('ham')">Pork</a>
+    <a class="btn btn-primary btn-lg" href="javascript:;" onclick="getRecipe('salmon'),getRecipe('smoked_salmon'),getRecipe('white_fish'),getRecipe('white_fish_fillets'),getRecipe('monkfish'),getRecipe('red_snapper'),getRecipe('anchovy_fillet'),getRecipe('herring'),getRecipe('sardines'),getRecipe('tuna'),getRecipe('cod')">Fish</a>
+    <a class="btn btn-primary btn-lg" href="javascript:;" onclick="getCategory('vegetarian'),getCategory('vegan')">Veg/Fruit</a>
+</div>
+    <h1>RECIPES</h1>
+    <ul id="strMeal"></ul>
+<script>
+  const ul = document.getElementById('strMeal');
+  const list = document.createDocumentFragment();
+  
+  // var ingredients = new URL("www.themealdb.com/api/json/v1/1/list.php?i=list");
+  // fetch(ingredients)
+  //   .then((response => {
+  //     return response.json();
+  //   })
+    function getRecipe(ingredient){
+        const getList = document.querySelectorAll('ul li');
+        for(let i = 0; i <= getList.length -1;i++){
+          getList[i].remove();
+        }
+        var param = {"i" : ingredient};
+        var url = new URL("https://www.themealdb.com/api/json/v1/1/filter.php?i=" + param.i);
+        fetch(url)
+          .then((response) => {
+            //console.log(response.json());
+            return response.json();
+          })
+          .then((data) => {
+            let strMeal = data.meals;
+
+            strMeal.map(function(meal){
+              let li = document.createElement('li');
+              let mealName = document.createElement('a');
+              mealName.setAttribute("href", "recipepage/" + meal.idMeal)
+              mealName.innerHTML = `${meal.strMeal}`
+              li.appendChild(mealName);
+              //console.log(mealName);
+              list.appendChild(li);
+              ul.appendChild(list);
+            });
+          })
+          .catch(function(error){
+              console.log(error);
+            });
+          }
+
+          function getCategory(ingredient){
+            const getList = document.querySelectorAll('ul li');
+            for(let i = 0; i <= getList.length -1;i++){
+              getList[i].remove();
+            }
+            var param = {"c" : ingredient};
+            var url = new URL("https://www.themealdb.com/api/json/v1/1/filter.php?c=" + param.c);
+            fetch(url)
+              .then((response) => {
+                //console.log(response.json());
+                return response.json();
+              })
+              .then((data) => {
+                let strMeal = data.meals;
+
+                strMeal.map(function(meal){
+                  let li = document.createElement('li');
+                  let mealName = document.createElement('a');
+                  mealName.setAttribute("href", "recipepage/" + meal.idMeal)
+                  mealName.innerHTML = `${meal.strMeal}`
+                  li.appendChild(mealName);
+                  //console.log(mealName);
+                  list.appendChild(li);
+                  ul.appendChild(list);
+                });
+              })
+              .catch(function(error){
+                  console.log(error);
+                });
+              }
+
+          
+</script>
+  </body>
+</html>

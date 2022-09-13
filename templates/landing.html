@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/landing_style.css') }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+    
+
+  </head>
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="{{url_for('static',filename = 'logo.png')}}" width="30" height="30" class="d-inline-block align-top" alt="">
+      HOME Recipes
+    </a>
+    <span class="navbar-text">
+      Home Page
+    </span>
+  </nav>
+
+  <div class="cheese container-fluid">
+    <div class="container-fluid cheese">
+      
+      <a href='searchpage'>
+        
+        <img src="https://thumbs.dreamstime.com/z/cooking-ingredients-closeup-44983432.jpg">
+        <div class="imgText">BASIC SEARCH</div>
+      </a>
+      
+    </div>
+    <div class="container-fluid cheese">
+      <a href="ingredientsearch">
+        <img src="https://thumbs.dreamstime.com/z/colourful-various-herbs-spices-cooking-colourful-various-herbs-spices-cooking-wooden-board-113655282.jpg">
+        <div class="imgText">INGREDIENT SEARCH</div>
+      </a>
+    </div>
+    <div class="container-fluid cheese">
+      <a href="discover">
+        <img src="https://loveahimsa.co.uk/wp-content/uploads/2021/07/ayurvedic-pic.jpg">
+        <div class="imgText">DISCOVERY</div>
+      </a>
+    </div>
+  </div>
+</html>

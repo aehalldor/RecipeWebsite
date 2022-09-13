@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Discover</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/discover_style.css') }}" />
+  </head>
+
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="/">
+      <img src="{{url_for('static',filename = 'logo.png')}}" width="30" height="30" class="d-inline-block align-top" alt="">
+      HOME Recipes
+    </a>
+    <span class="navbar-text">
+      Discovery
+    </span>
+  </nav>
+
+  <body>
+    <br>
+    <div class="text-center">
+      <h3>Discover Recipes</h3>
+        <a class="btn btn-primary btn-lg" href="javascript:;" onclick="showHide('randomCountry')">Random By Country</a>
+        <a class="btn btn-primary btn-lg" href="javascript:;" onclick="showHide('randomCategory')">Random By Category</a>
+        <a class="btn btn-primary btn-lg" href="javascript:;" onclick="showHide('listAllCountry')">View All By Country</a>
+        <a class="btn btn-primary btn-lg" href="javascript:;" onclick="showHide('listAllCategory')">View All By Category</a>
+    </div>
+
+    <br>
+
+    <div id="listAllCountry" class="text-center">
+      <h4>List All By Country</h4>
+      <br>
+      <a class="btn btn-primary" href="countrylist/American">🇺🇸 American 🇺🇸</a>
+      <a class="btn btn-primary" href="countrylist/British">🇬🇧 British 🇬🇧</a>
+      <a class="btn btn-primary" href="countrylist/Canadian">🇨🇦 Canadian 🇨🇦</a>
+      <a class="btn btn-primary" href="countrylist/Chinese">🇨🇳 Chinese 🇨🇳</a>
+      <a class="btn btn-primary" href="countrylist/Croation">🇭🇷 Croatian 🇭🇷</a> 
+
+      <a class="btn btn-primary" href="countrylist/Egyptian">🇪🇬 Egyptian 🇪🇬</a>
+      <a class="btn btn-primary" href="countrylist/French">🇫🇷 French 🇫🇷</a>
+      <a class="btn btn-primary" href="countrylist/Greek">🇬🇷 Greek 🇬🇷</a>
+      <a class="btn btn-primary" href="countrylist/Indian">🇮🇳 Indian 🇮🇳</a>
+      <a class="btn btn-primary" href="countrylist/Irish">🇮🇪 Irish 🇮🇪</a>
+
+      <a class="btn btn-primary" href="countrylist/Italian">🇮🇹 Italian 🇮🇹</a> 
+      <a class="btn btn-primary" href="countrylist/Jamaican">🇯🇲 Jamaican 🇯🇲</a>
+      <a class="btn btn-primary" href="countrylist/Japanese">🇯🇵 Japanese 🇯🇵</a>
+      <a class="btn btn-primary" href="countrylist/Malaysian">🇲🇾 Malaysian 🇲🇾</a>
+      <a class="btn btn-primary" href="countrylist/Mexican">🇲🇽 Mexican 🇲🇽</a>
+
+      <a class="btn btn-primary" href="countrylist/Moroccan">🇲🇦 Moroccan 🇲🇦</a> 
+      <a class="btn btn-primary" href="countrylist/Polish">🇵🇱 Polish 🇵🇱</a>
+      <a class="btn btn-primary" href="countrylist/Portuguese">🇵🇹 Portuguese 🇵🇹</a>
+      <a class="btn btn-primary" href="countrylist/Tunisian">🇹🇳 Tunisian 🇹🇳</a>
+    </div>
+
+    <div id="listAllCategory" class="text-center">
+      <h4>List All By Category</h4>
+      <br>
+      <a class="btn btn-primary" href="categorylist/Breakfast">🥞 Breakfast</a>
+      <a class="btn btn-primary" href="categorylist/Dessert">🍰 Dessert</a>
+      <a class="btn btn-primary" href="categorylist/Pasta">🍝 Pasta</a>
+      <a class="btn btn-primary" href="categorylist/Seafood">🍣 Seafood</a>
+      <a class="btn btn-primary" href="categorylist/Side">🥗 Sides</a>
+      <a class="btn btn-primary" href="categorylist/Vegan">🥬 Vegan</a> 
+      <a class="btn btn-primary" href="categorylist/Vegetarian">🥦 Vegetarian</a>
+    </div>
+    
+    <div id="randomCountry" class="text-center">
+      <h4>Random by Country</h4>
+      <br>
+      <div class="btn btn-primary" onclick="countrySearch('American')"> 🇺🇸 American 🇺🇸 </div>
+      <div class="btn btn-primary" onclick="countrySearch('British')"> 🇬🇧 British 🇬🇧 </div>
+      <div class="btn btn-primary" onclick="countrySearch('Canadian')"> 🇨🇦 Canadian 🇨🇦 </div>
+      <div class="btn btn-primary" onclick="countrySearch('Chinese')"> 🇨🇳 Chinese 🇨🇳 </div>
+      <div class="btn btn-primary" onclick="countrySearch('Croatian')"> 🇭🇷 Croatian 🇭🇷 </div>
+
+      <div class="btn btn-primary" onclick="countrySearch('Egyptian')"> 🇪🇬 Egyptian 🇪🇬 </div>
+      <div class="btn btn-primary" onclick="countrySearch('French')"> 🇫🇷 French 🇫🇷 </div>
+      <div class="btn btn-primary" onclick="countrySearch('Greek')"> 🇬🇷 Greek 🇬🇷 </div>
+      <div class="btn btn-primary" onclick="countrySearch('Indian')"> 🇮🇳 Indian 🇮🇳 </div>
+      <div class="btn btn-primary" onclick="countrySearch('Irish')"> 🇮🇪 Irish 🇮🇪 </div>
+
+      <div class="btn btn-primary" onclick="countrySearch('Jamaican')"> 🇯🇲 Jamaican 🇯🇲 </div>
+      <div class="btn btn-primary" onclick="countrySearch('Japanese')"> 🇯🇵 Japanese 🇯🇵 </div>
+      <div class="btn btn-primary" onclick="countrySearch('Malaysian')"> 🇲🇾 Malaysian 🇲🇾 </div>
+      <div class="btn btn-primary" onclick="countrySearch('Mexican')"> 🇲🇽 Mexican 🇲🇽 </div>
+
+
+      <div class="btn btn-primary" onclick="countrySearch('Moroccan')"> 🇲🇦 Moroccan 🇲🇦 </div>
+      <div class="btn btn-primary" onclick="countrySearch('Polish')"> 🇵🇱 Polish 🇵🇱 </div>
+      <div class="btn btn-primary" onclick="countrySearch('Portuguese')"> 🇵🇹 Portuguese 🇵🇹 </div>
+      <div class="btn btn-primary" onclick="countrySearch('Tunisian')"> 🇹🇳 Tunisian 🇹🇳 </div>
+    </div>
+    
+    <div id="randomCategory" class="text-center">
+      <h4>Random by Category</h4>
+      <br>
+      <div class="btn btn-primary" onclick="categorySearch('Breakfast')">🥞 Breakfast</div>
+      <div class="btn btn-primary" onclick="categorySearch('Dessert')">🍰 Dessert</div>
+      <div class="btn btn-primary" onclick="categorySearch('Pasta')">🍝 Pasta</div>
+      <div class="btn btn-primary" onclick="categorySearch('Seafood')">🍣 Seafood</div>
+      <div class="btn btn-primary" onclick="categorySearch('Side')">🥗 Sides</div>
+      <div class="btn btn-primary" onclick="categorySearch('Vegan')">🥬 Vegan</div>
+      <div class="btn btn-primary" onclick="categorySearch('Vegetarian')">🥦 Vegetarian</div>
+    </div>  
+
+
+
+
+    <br>
+<!-- 
+    <header>Category Lists</header> -->
+
+    <!-- <input id="canadaTestButton" type="button" onclick="window.location.href='countrylist/Canadian';" value="canada list test" /> -->
+
+
+  </body>
+
+  <script>
+    function showHide(divID){
+      document.getElementById("randomCategory").style.display = "";
+      document.getElementById("randomCountry").style.display = "";
+      document.getElementById("listAllCategory").style.display = "";
+      document.getElementById("listAllCountry").style.display = "";
+      let divEle = document.getElementById(divID);
+      if(divEle.style.display == ""){
+        divEle.style.display = "block";
+      }else{
+        divEle.style.display = "";
+      }
+    }
+    function countrySearch(country){
+
+      var url = new URL("https://www.themealdb.com/api/json/v1/1/filter.php?a=" + country);
+      fetch(url)
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+
+          //generate random int between 0 and list length
+          var randomInt = Math.floor(Math.random() * data.meals.length);
+
+          var randomID = data.meals[randomInt].idMeal;
+
+          window.location = "/recipepage/" + randomID;
+
+        })
+    }
+
+    function categorySearch(category){
+
+      var url = new URL("https://www.themealdb.com/api/json/v1/1/filter.php?c=" + category);
+      fetch(url)
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+
+          //generate random int between 0 and list length
+          var randomInt = Math.floor(Math.random() * data.meals.length);
+
+          var randomID = data.meals[randomInt].idMeal;
+
+          window.location = "/recipepage/" + randomID;
+
+        })
+    }
+
+    function categoryList(category){
+
+      var url = new URL("https://www.themealdb.com/api/json/v1/1/filter.php?c=" + category);
+      fetch(url)
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+
+          let mealList = data.meals;
+
+          //generate random int between 0 and list length
+          var randomInt = Math.floor(Math.random() * data.meals.length);
+
+          var randomID = data.meals[randomInt].idMeal;
+
+          window.location = "/recipepage/" + randomID;
+
+        })
+
+    }
+
+    // function testFunction() {
+
+    //     let _data = {
+    //         "query":"for breakfast i ate 2 eggs, bacon, and french toast",
+    //         "timezone": "US/Eastern"
+    //     }
+
+    //     fetch('https://trackapi.nutritionix.com/v2/natural/nutrients', {
+    //         method: "POST",
+    //         body: JSON.stringify(_data),
+    //         headers: {
+    //                     "Content-type": "application/json",
+    //                     "x-app-id": "ac882fa7",
+    //                     "x-app-key": "d40a735a24db6dc8b9e3abd8aa01794d",
+    //                     "x-remote-user-id": "0"
+    //                  }
+    //     })
+    //     .then(response => response.json()) 
+    //     .then(json => console.log(json)); 
+    //     // .catch(err => console.log(err));
+    // }
+
+
+  </script>
+
+</html>

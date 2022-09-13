@@ -1,0 +1,58 @@
+
+li{
+	margin-left: 5vh;
+}
+.navbar{
+	position: relative;
+}
+img{
+	max-width: 100vh;
+}
+.btn{
+  font-size: xx-large;
+  margin: 0.5%;
+}
+h1{
+	margin: 1%;
+	text-align: center;
+	font-weight: 1000;
+}
+h3{
+  font-size: xx-large;
+}
+body{
+	background-color: #a76042;
+	
+}
+a{
+	font-weight: 800;
+	color: #e7c8b3;
+}
+a:hover, a:active{
+	color: #f8ece4
+}
+.btn{
+  background-color: #C9Ac98 !important;
+	border-color: #C9Ac98 !important;
+  color: black;
+}
+.btn:hover, .btn:active{
+  outline: none;
+	box-shadow: none;
+	background-color: #e7c8b3 !important;
+	border-color: #e7c8b3 !important;
+}
+.title{
+	font-size:x-large !important;
+}
+.nutritionLabel{
+	
+	width: 45vh !important;
+}
+#test2{
+	text-align: -webkit-center !important;
+}
+.calorieNote{
+	font-size: 90% !important;
+	color: #333 !important;
+}

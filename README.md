@@ -1,3 +1,3 @@
-# Proj3-Big-Grocery
+# RecipeWebsite
 
 Deployed at https://big-grocery.herokuapp.com
